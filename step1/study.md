@@ -1,6 +1,6 @@
 # 1주차: TodoList 만들기
 
-## [ ] Javascript Framework가 등장한 배경에 대해 조사하기 (5문장 요약)
+## [✅] Javascript Framework가 등장한 배경에 대해 조사하기 (5문장 요약)
 
 초기 웹은 사용자 요청에 맞게 정적 HTML을 브라우저에 되돌려 주었다.
 
@@ -23,7 +23,7 @@ AJAX의 등장. 새로고침없이 일부분을 업데이트를 할 수 있다 (
 
 https://heecheolman.tistory.com/38
 
-## [ ] Vue와 React의 장단점에 대해 비교하기 (5가지)
+## [✅] Vue와 React의 장단점에 대해 비교하기 (5가지)
 
 정리
 
@@ -111,16 +111,16 @@ yarn serve
 
 https://www.youtube.com/watch?v=8AlnTd31KUk
 
-## [ ] React로 TodoList 만들기
+## [✅] React로 TodoList 만들기
 
-- [ ] CRA(Create React App)로 프로젝트 구성
-- [ ] TodoList 만들기
+- [✅] CRA(Create React App)로 프로젝트 구성
+- [✅] TodoList 만들기
 
-  - [ ] 목록
-  - [ ] 추가
-  - [ ] 수정
-  - [ ] 삭제
-  - [ ] 토글
+  - [✅] 목록
+  - [✅] 추가
+  - [✅] 수정
+  - [✅] 삭제
+  - [✅] 토글
 
 npx create-react-app react-todo
 
