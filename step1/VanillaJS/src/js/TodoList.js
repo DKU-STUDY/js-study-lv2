@@ -9,23 +9,25 @@ export default function ({ state }) {
                 <li class="editing" data-id=${todoItem.id}>
                 <div class="view">
                   <form name="modify-form" method="post">
-                    <input class="" value=${todoItem.content} />
+                    <input class="modify-todo" value=${todoItem.content} />
                     <button type="submit">완료</button>
-                    <button type="button">취소</button>
+                    <button class="modify-cancel" type="button">취소</button>
                   </form>
                 </div>
                 </li>
                 `;
         }
         return `
-            <li data-id=${todoItem.id}>
+            <li data-id=${todoItem.id} ${
+          todoItem.isComplete ? `class="completed"` : ''
+        }>
             <div class="view">
             <input class="toggle" type="checkbox" ${
               todoItem.isComplete ? 'checked' : ''
             }>
-            ${todoItem.content}
-            <button class="modify">수정</button>
-            <button class="destroy">삭제</button>
+            <label>${todoItem.content}</label>
+            <button class="modify" type="button">수정</button>
+            <button class="destroy" type="button">삭제</button>
             </div>
             </li>
         `;
