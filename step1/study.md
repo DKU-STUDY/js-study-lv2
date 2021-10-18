@@ -1,6 +1,6 @@
 # 1주차: TodoList 만들기
 
-## [✅] Javascript Framework가 등장한 배경에 대해 조사하기 (5문장 요약)
+- [x] Javascript Framework가 등장한 배경에 대해 조사하기 (5문장 요약)  
 
 초기 웹은 사용자 요청에 맞게 정적 HTML을 브라우저에 되돌려 주었다.
 
@@ -23,7 +23,7 @@ AJAX의 등장. 새로고침없이 일부분을 업데이트를 할 수 있다 (
 
 https://heecheolman.tistory.com/38
 
-## [✅] Vue와 React의 장단점에 대해 비교하기 (5가지)
+- [x] Vue와 React의 장단점에 대해 비교하기 (5가지)
 
 정리
 
@@ -89,15 +89,14 @@ React.
 
 https://joshua1988.github.io/web_dev/vue-or-react/
 
-## [✅] Vue로 TodoList 만들기
-
-- [✅] Vue CLI로 프로젝트 구성
-- [✅] TodoList 만들기
-  - [✅] 목록
-  - [✅] 추가
-  - [✅] 수정
-  - [✅] 삭제
-  - [✅] 토글
+- [x] Vue로 TodoList 만들기
+  - [x] Vue CLI로 프로젝트 구성
+  - [x] TodoList 만들기
+    - [x] 목록
+    - [x] 추가
+    - [x] 수정
+    - [x] 삭제
+    - [x] 토글
 
 ### 프로젝트 생성 & 셋업
 
@@ -112,23 +111,20 @@ yarn serve
 https://www.youtube.com/watch?v=8AlnTd31KUk
 https://www.youtube.com/watch?v=DmgAvJhK3YE&list=PLpJDjPqxGWGrkyxxavs2oW-SK3v_8VLwa
 
-## [✅] React로 TodoList 만들기
-
-- [✅] CRA(Create React App)로 프로젝트 구성
-- [✅] TodoList 만들기
-
-  - [✅] 목록
-  - [✅] 추가
-  - [✅] 수정
-  - [✅] 삭제
-  - [✅] 토글
+- [x] React로 TodoList 만들기
+  - [x] CRA(Create React App)로 프로젝트 구성
+  - [x] TodoList 만들기
+    - [x] 목록
+    - [x] 추가
+    - [x] 수정
+    - [x] 삭제
+    - [x] 토글
 
 npx create-react-app react-todo
 
-## [⚠] Vanilla Javascript로 TodoList 만들기
-
-- [✅] 목록
-- [✅] 추가
-- [ ] 수정
-- [ ] 삭제
-- [ ] 토글
+- [ ] Vanilla Javascript로 TodoList 만들기
+  - [x] 목록
+  - [x] 추가
+  - [ ] 수정
+  - [ ] 삭제
+  - [ ] 토글
