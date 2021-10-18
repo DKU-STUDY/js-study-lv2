@@ -110,6 +110,7 @@ yarn serve
 ### ref video
 
 https://www.youtube.com/watch?v=8AlnTd31KUk
+https://www.youtube.com/watch?v=DmgAvJhK3YE&list=PLpJDjPqxGWGrkyxxavs2oW-SK3v_8VLwa
 
 ## [✅] React로 TodoList 만들기
 
