@@ -89,15 +89,15 @@ React.
 
 https://joshua1988.github.io/web_dev/vue-or-react/
 
-## [ ] Vue로 TodoList 만들기
+## [✅] Vue로 TodoList 만들기
 
-- [ ] Vue CLI로 프로젝트 구성
-- [ ] TodoList 만들기
-  - [ ] 목록
-  - [ ] 추가
-  - [ ] 수정
-  - [ ] 삭제
-  - [ ] 토글
+- [✅] Vue CLI로 프로젝트 구성
+- [✅] TodoList 만들기
+  - [✅] 목록
+  - [✅] 추가
+  - [✅] 수정
+  - [✅] 삭제
+  - [✅] 토글
 
 ### 프로젝트 생성 & 셋업
 
