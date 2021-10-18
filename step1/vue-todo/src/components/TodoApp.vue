@@ -96,7 +96,6 @@ export default {
     },
     handleEditTodo({ id, content }) {
       const targetIdx = this.getTodoIndex(id);
-      console.log(id, content, targetIdx, this.todoList);
       if (targetIdx !== -1 && content) {
         this.todoList[targetIdx].content = content;
       }

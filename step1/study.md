@@ -125,10 +125,10 @@ https://www.youtube.com/watch?v=DmgAvJhK3YE&list=PLpJDjPqxGWGrkyxxavs2oW-SK3v_8V
 
 npx create-react-app react-todo
 
-## [ ] Vanilla Javascript로 TodoList 만들기
+## [⚠] Vanilla Javascript로 TodoList 만들기
 
-- [ ] 목록
-- [ ] 추가
+- [✅] 목록
+- [✅] 추가
 - [ ] 수정
 - [ ] 삭제
 - [ ] 토글
