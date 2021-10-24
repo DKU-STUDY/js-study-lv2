@@ -1,0 +1,8 @@
+.todo-list li {
+  list-style: none;
+}
+
+.todo-list li.completed label {
+  color: gray;
+  text-decoration: line-through;
+}
