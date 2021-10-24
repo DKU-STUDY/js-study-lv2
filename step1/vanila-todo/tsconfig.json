@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "outDir": "build",
+    "sourceMap": true,
+    "target": "ES5",
+    "lib": [
+      "es2020",
+      "dom"
+    ]
+  },
+  "include": [
+    "/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
