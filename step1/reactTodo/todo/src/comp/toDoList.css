@@ -1,0 +1,66 @@
+.toDoList{
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-top: 4rem;
+    height: 20rem;
+    width: 20rem;
+}
+
+.listContainer{
+    margin-left: 3rem;
+    margin-top: 0;
+    padding: 0;
+    text-align: left;
+    list-style: none;
+}
+
+.listEle{
+    display: flex;
+    flex-direction: row;
+}
+
+.HighLightOn{
+    color:rgba(211, 219, 226, 0.925);
+}
+
+.toDoLi::selection{
+    background: none;
+}
+
+.HighLightOff{
+    color: rgb(85, 85, 85);
+    text-decoration: line-through;
+}
+
+.controller{
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.del{
+    width: 1,5rem;
+    border: rgba(255, 255, 255, 0.07) solid 0.5px;
+    filter: grayscale(100);
+}
+
+.edit{
+    width: 1rem;
+    border: rgba(255, 255, 255, 0.07) solid 0.5px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.popIn{
+    transition-property: all;
+    opacity: 1;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+}
+
+.popOut{
+    transition-property: all;
+    opacity: 0;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+}

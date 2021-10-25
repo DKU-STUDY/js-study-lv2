@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
+
+body{
+    background-color: #ecf0f1;
+    margin: 0px;
+}
+
+.upline{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 7vh;
+    background: linear-gradient(to top,rgba(0,0,0,0), 3%, rgba(32, 32, 32, 0.1) ,10% , rgba(70, 70, 70, 0.1));
+    z-index: 2;
+}
+
+#weatherContainer{
+    margin-right: 5px;
+}
+
+
+#weatherIcon{
+    position: relative;
+    left: 35px;
+}
+
+#currentTemp{
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 20px;
+    color: rgba(237, 241, 242, 0.8);
+    margin-left: 5px;
+    position: relative;
+    bottom: 2px;
+}
+
+#cityName{
+    font-size: 12px;
+    color: rgba(237, 241, 242, 0.8);
+    font-family: 'Oswald', sans-serif;
+    position: relative;
+    top: 4px;
+}
+
+.upline-txt{
+    z-index: 1;
+
+}
+
+.main{
+    height: 90vh;
+    background: radial-gradient(rgba(124, 124, 124, 0.1), 60% , rgba(32, 32, 32, 0.1), 85%, rgba(0, 0, 0, 0.3));
+    margin: 0px;
+    padding: 15px;
+    padding-top: 40px;
+}
+
+.js-clock{
+    position: relative;
+    margin: 0px;
+    font-size: 125px;
+    color: #ecf0f1;
+    font-family: 'Work Sans', sans-serif;
+    text-shadow: 1px 0 rgba(127, 140, 141, 0.3),
+        0 1px rgba(127, 140, 141, 0.3);
+    text-align: center;
+    
+}
+
+.form-and-nametxt{
+    position: relative;
+    top: 22vh;
+    color: #ecf0f1;
+    text-align: center;
+    font-family: 'Work Sans', sans-serif;
+    text-shadow: 1px 0 rgba(127, 140, 141, 0.3),
+        0 1px rgba(127, 140, 141, 0.3);
+    font-size: 45px;
+}
+
+#greetXmark{
+    margin-left: 10px;
+    position: relative;
+    top: 5px;
+    visibility: hidden;
+    opacity: 1%;
+}
+
+.popup{
+    transition-property: all;
+    transition-duration: 200ms;
+    opacity: 50% !important;
+}
+
+.popoff{
+    transition-property: all;
+    transition-duration: 200ms;
+    opacity: 0% !important;
+}
+
+.hide {
+    display: none;
+}
+
+.showing{
+    display: block;
+}
+
+
+.js-input{
+    background: linear-gradient(to top, rgba(11,11,11,0.65), 50%, rgba(124, 124, 124, 0.068));
+    border-width: 0px;
+    border-bottom-width: 1px;
+    color: #ecf0f1;
+}
+
+.js-input:focus{
+    outline: none;
+}
+
+input::placeholder{
+    color: #ecf0f1;
+    text-shadow: 1px 0 rgba(127, 140, 141, 0.3),
+        0 1px rgba(127, 140, 141, 0.3);
+}
+
+.js-greetings{
+    margin-left: 5px;
+}
+
+
+.button{
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+
+.to-do-div{
+    font-size: 16px;
+    position: relative;
+    top: 22vh;
+    text-align: center;
+}
+
+.toDoList{
+    margin: 15px 0px;
+    text-align: center;
+    color: #ecf0f1;
+    font-size: 20px;
+    font-family: 'Work Sans', sans-serif;
+    list-style: none;
+    text-shadow: 1px 0 rgba(127, 140, 141, 0.3),
+        0 1px rgba(127, 140, 141, 0.3);
+}
+.bottom-line{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 30px;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    background:linear-gradient(to bottom,rgba(117, 134, 134, 0.603), 90%, #727883ef);
+    opacity: 0.85;
+}
+
+.bottom-highlight{
+    position: relative;
+    height: 1.25px;
+    top: 2px;
+    background: azure;
+}
+
+.reset-name{
+    width: 60px;
+    height: 3%;
+    text-align: right;
+    border:1px solid black;
+    margin: 5px;
+    margin-left: 80%;
+}
