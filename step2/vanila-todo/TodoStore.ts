@@ -2,7 +2,7 @@ import Store from "./Core/Store";
 import {actions, STORAGE_KEY} from "./Core/Constants";
 
 export const store = new Store({
-    state: {
+    state: JSON.parse(localStorage.getItem(STORAGE_KEY) || "null") || {
         selected: -1,
         todoList: [{
             id: 1,
