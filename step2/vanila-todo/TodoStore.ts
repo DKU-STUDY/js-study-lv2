@@ -1,15 +1,10 @@
 import Store from "./Core/Store";
 import {actions, STORAGE_KEY} from "./Core/Constants";
+import {Repository} from "./Core/Repository";
+import {todoState} from "./Core/type";
 
 export const store = new Store({
-    state: JSON.parse(localStorage.getItem(STORAGE_KEY) || "null") || {
-        selected: -1,
-        todoList: [{
-            id: 1,
-            text: "hi",
-            completed: false
-        }]
-    },
+
     mutations: {
         [actions.ADD](state, payload) {
             const newId = Math.max(...state.todoList.map(todo => todo.id)) + 1;

@@ -19,9 +19,9 @@ export class Component {
 
         observe(() => {
             this.render();
-            this.setEvent();
-            this.mount();
         });
+        this.setEvent();
+        this.mount();
 
     }
 

@@ -2,40 +2,42 @@ import {STORAGE_KEY} from "./Constants";
 import {store} from "../TodoStore";
 import {todoState} from "./type";
 
-let currentObserver: (() => void) | null = null;
+let currentObserver: (Function | null) = null;
 
-export const observe = (fn: () => void) => {
+export const observe = (fn: Function) => {
     currentObserver = fn;
     fn();
     currentObserver = null;
 }
 //
 // export function observable<T extends object>(obj:T)  {
-//     Object.keys(obj).forEach((key) => {
+// Object.keys(obj).forEach((key) => {
 //
-//         let _value = obj[key];
-//         const observers = new Set();
-//         Object.defineProperty(obj, key, {
-//             get() {
-//                 if (currentObserver) observers.add(currentObserver);
-//                 return _value;
-//             },
-//             set(value) {
-//                 if (typeof value === "object") {
-//                     observable(value);
-//                 }
-//                 _value = value;
-//                 observers.forEach((fn: any) => fn());
-//                 localStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
+//     let _value = obj[key as keyof T];
+//     const observers = new Set();
+//     Object.defineProperty(obj, key, {
+//         get() {
+//             if (currentObserver) observers.add(currentObserver);
+//             return _value;
+//         },
+//         set(value) {
+//             if(typeof value ==="object"){
+//                 obj[key as keyof T] = observable(value);
 //             }
-//         })
+//             if (_value === value) return;
+//             if (JSON.stringify(_value) === JSON.stringify(value)) return;
+//             _value = value;
+//             observers.forEach((fn: any) => fn());
+//             localStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
+//         }
 //     })
-//     return obj;
+// })
+// return obj;
 // }
 
 
 export function observable<T extends object>(state: T) {
-    const observeMap: { [key: string | symbol]: Set<() => void> } = {};
+    const observeMap: { [key: string | symbol]: Set<Function> } = {};
     return new Proxy<T>(state, {
 
         get(target, name) {
@@ -45,7 +47,7 @@ export function observable<T extends object>(state: T) {
         },
         set(target, name, value) {
             if (typeof value === "object") {
-                observable(value)
+                target[name as keyof T] = observable(value);
             }
             if (target[name as keyof T] === value) return true;
             if (JSON.stringify(target[name as keyof T]) === JSON.stringify(value)) return true;
