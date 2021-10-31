@@ -12,12 +12,7 @@ export default class Store {
     state;
 
     constructor({mutations, actions}: StoreProp<todoState>) {
-        this.$state = new Proxy<todoState>(observable(this.initState()), { //observable을 가로채서 localstorage에 저장하는 로직
-            set: (target, name, value) => {
-                this.repo.set(value);
-                return true;
-            }
-        });
+        this.$state = observable(this.initState());
         this.$actions = actions;
         this.$mutations = mutations;
 
@@ -28,7 +23,7 @@ export default class Store {
     }
 
     initState() {
-        
+
         return this.repo.get() || {
             selected: -1,
             todoList: [{

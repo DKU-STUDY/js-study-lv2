@@ -1,13 +1,13 @@
-15875
-62/home/inust33/js-study-lv2/step2/vanila-todo/Core/Component.ts1635212486768157687 0
-61/home/inust33/js-study-lv2/step2/vanila-todo/Core/observer.ts1635219842538099540 0
-49/home/inust33/js-study-lv2/step2/vanila-todo/Core1635219842538099540 1
+15876
+62/home/inust33/js-study-lv2/step2/vanila-todo/Core/Component.ts1635675457745101050 0
+61/home/inust33/js-study-lv2/step2/vanila-todo/Core/observer.ts1635675657365102485 0
+49/home/inust33/js-study-lv2/step2/vanila-todo/Core1635675657365102485 1
 52/home/inust33/js-study-lv2/step2/vanila-todo/main.ts1635212486768157687 0
 55/home/inust33/js-study-lv2/step2/vanila-todo/index.html1635184097740107344 0
-56/home/inust33/js-study-lv2/step2/vanila-todo/TodoList.ts1635212721368155832 0
+56/home/inust33/js-study-lv2/step2/vanila-todo/TodoList.ts1635675457745101050 0
 67/home/inust33/js-study-lv2/step2/vanila-todo/dist/index.94538dff.js1635183183640114570 0
-71/home/inust33/js-study-lv2/step2/vanila-todo/dist/index.9ac78220.js.map1635219615388101336 0
-57/home/inust33/js-study-lv2/step2/vanila-todo/TodoStore.ts1635215450658134258 0
+71/home/inust33/js-study-lv2/step2/vanila-todo/dist/index.9ac78220.js.map1635675657435102486 0
+57/home/inust33/js-study-lv2/step2/vanila-todo/TodoStore.ts1635675412735100727 0
 57/home/inust33/js-study-lv2/step2/vanila-todo/package.json1635208809698186754 0
 62/home/inust33/js-study-lv2/step2/vanila-todo/package-lock.json1635174070910186606 0
 80/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/resolve-from/readme.md1506160021000000000 0
@@ -191,7 +191,7 @@
 88/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/core-js/modules/es.weak-set.js499162500000000000 0
 97/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/core-js/modules/esnext.iterator.from.js499162500000000000 0
 104/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/core-js/modules/esnext.reflect.has-metadata.js499162500000000000 0
-58/home/inust33/js-study-lv2/step2/vanila-todo/Core/Store.ts1635212486768157687 0
+58/home/inust33/js-study-lv2/step2/vanila-todo/Core/Store.ts1635649502114914428 0
 91/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/core-js/modules/es.parse-float.js499162500000000000 0
 91/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/core-js/modules/es.reflect.get.js499162500000000000 0
 98/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/core-js/modules/esnext.object.has-own.js499162500000000000 0
@@ -815,7 +815,7 @@
 102/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/core-js/features/instance/find-last-index.js499162500000000000 0
 94/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/core-js/features/instance/entries.js499162500000000000 0
 93/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/core-js/features/instance/repeat.js499162500000000000 0
-49/home/inust33/js-study-lv2/step2/vanila-todo/dist1635219615388101336 1
+49/home/inust33/js-study-lv2/step2/vanila-todo/dist1635675657435102486 1
 91/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/core-js/features/instance/fill.js499162500000000000 0
 98/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/core-js/features/instance/starts-with.js499162500000000000 0
 97/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/core-js/features/instance/trim-start.js499162500000000000 0
@@ -1834,7 +1834,7 @@
 97/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/@nodelib/fs.stat/out/providers/async.js499162500000000000 0
 107/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/caniuse-lite/data/features/css-in-out-of-range.js499162500000000000 0
 96/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/@nodelib/fs.stat/out/providers/sync.js499162500000000000 0
-60/home/inust33/js-study-lv2/step2/vanila-todo/dist/index.html1635218618648109215 0
+60/home/inust33/js-study-lv2/step2/vanila-todo/dist/index.html1635648554474907614 0
 92/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/@nodelib/fs.stat/out/settings.d.ts499162500000000000 0
 105/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/core-js/stable/object/get-own-property-names.js499162500000000000 0
 89/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/@nodelib/fs.stat/out/index.d.ts499162500000000000 0
@@ -2052,6 +2052,7 @@
 89/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/console-browserify/CHANGELOG.md499162500000000000 0
 104/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/console-browserify/test/static/test-adapter.js499162500000000000 0
 90/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/console-browserify/test/index.js499162500000000000 0
+63/home/inust33/js-study-lv2/step2/vanila-todo/Core/Repository.ts1635230699498013717 0
 81/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/console-browserify/test1635146713932299800 1
 89/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/console-browserify/package.json1635146716522299779 0
 76/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/console-browserify1635146716532299779 1
@@ -3666,7 +3667,7 @@
 76/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/cssom/lib/index.js499162500000000000 0
 107/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/@parcel/babel-ast-utils/test/fixtures/template.js499162500000000000 0
 107/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/@parcel/babel-ast-utils/test/fixtures/function.js499162500000000000 0
-58/home/inust33/js-study-lv2/step2/vanila-todo/tsconfig.json1635174281120184944 0
+58/home/inust33/js-study-lv2/step2/vanila-todo/tsconfig.json1635250986533160661 0
 106/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/@parcel/babel-ast-utils/test/fixtures/control.js499162500000000000 0
 87/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/is-symbol/.github/FUNDING.yml499162500000000000 0
 87/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/cosmiconfig/dist/index.js.map499162500000000000 0
@@ -6972,7 +6973,7 @@
 96/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/es-abstract/2015/GetOwnPropertyKeys.js499162500000000000 0
 91/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/core-js/features/string/search.js499162500000000000 0
 68/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/nanocolors1635146716322299781 1
-59/home/inust33/js-study-lv2/step2/vanila-todo/Core/type.d.ts1635208288478190874 0
+59/home/inust33/js-study-lv2/step2/vanila-todo/Core/type.d.ts1635675412735100727 0
 91/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/htmlnano/docs/docs/050-modules.md499162500000000000 0
 76/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/acorn-walk/LICENSE499162500000000000 0
 79/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/lodash/fp/invertBy.js499162500000000000 0
@@ -7952,7 +7953,7 @@
 86/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/es-abstract/helpers/isNaN.js499162500000000000 0
 107/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/@parcel/package-manager/src/NodePackageManager.js499162500000000000 0
 81/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/astral-regex/index.d.ts499162500000000000 0
-44/home/inust33/js-study-lv2/step2/vanila-todo1635215450658134258 1
+44/home/inust33/js-study-lv2/step2/vanila-todo1635675457745101050 1
 104/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/public-encrypt/node_modules/bn.js/package.json1635146716202299782 0
 88/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/globals/node_modules/type-fest1635146716472299780 1
 66/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/is-regex1635146716412299780 1
@@ -9729,7 +9730,7 @@
 74/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/lodash/invoke.js499162500000000000 0
 75/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/uuid/CHANGELOG.md499162500000000000 0
 112/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/@babel/generator/node_modules/source-map/lib/base64.js1492467891000000000 0
-67/home/inust33/js-study-lv2/step2/vanila-todo/dist/index.9ac78220.js1635219615388101336 0
+67/home/inust33/js-study-lv2/step2/vanila-todo/dist/index.9ac78220.js1635675657435102486 0
 87/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/stream-browserify/.travis.yml499162500000000000 0
 79/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/lodash/fp/uniqWith.js499162500000000000 0
 98/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/css-selector-tokenizer/lib/uni-regexp.js499162500000000000 0
@@ -15394,7 +15395,7 @@
 81/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/braces/lib/stringify.js499162500000000000 0
 110/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/@babel/core/lib/parser/util/missing-plugin-helper.js456789000000000000 0
 77/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/braces/CHANGELOG.md499162500000000000 0
-57/home/inust33/js-study-lv2/step2/vanila-todo/TodoInput.ts1635209841308178599 0
+57/home/inust33/js-study-lv2/step2/vanila-todo/TodoInput.ts1635675457745101050 0
 97/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/caniuse-lite/data/features/innertext.js499162500000000000 0
 85/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/css-select/lib/compile.d.ts499162500000000000 0
 68/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/css-select1635146716322299781 1
@@ -15666,7 +15667,7 @@
 106/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/typescript/loc/lcl/DEU/TypeScriptLanguageService1635174070740186607 1
 163/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/typescript/loc/lcl/DEU/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl499162500000000000 0
 96/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/typescript/loc/lcl/DEU/TypeScriptTasks1635174070740186607 1
-62/home/inust33/js-study-lv2/step2/vanila-todo/Core/Constants.ts1635175276720177074 0
+62/home/inust33/js-study-lv2/step2/vanila-todo/Core/Constants.ts1635675362415100365 0
 80/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/lodash/fp/toPairsIn.js499162500000000000 0
 121/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/typescript/loc/lcl/DEU/TypeScriptTasks/TypeScript.Tasks.dll.lcl499162500000000000 0
 80/home/inust33/js-study-lv2/step2/vanila-todo/node_modules/typescript/loc/lcl/CHS1635174070730186607 1
