@@ -1,5 +1,5 @@
 import {Component} from "./Core/Component";
-import {actions} from "./Core/Constants";
+import {Action} from "./Core/Constants";
 import {store} from "./TodoStore";
 
 export class TodoInput extends Component {
@@ -20,7 +20,7 @@ export class TodoInput extends Component {
                 alert("한 글자 이상 입력하세요");
                 return false;
             }
-            store.commit(actions.ADD, text);
+            store.commit(Action.ADD, text);
         })
     }
 

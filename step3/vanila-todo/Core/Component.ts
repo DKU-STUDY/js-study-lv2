@@ -1,4 +1,4 @@
-import {actions} from "./Constants";
+import {Action} from "./Constants";
 import {store} from "../TodoStore";
 import {observe} from "./observable";
 import Store from "./Store";

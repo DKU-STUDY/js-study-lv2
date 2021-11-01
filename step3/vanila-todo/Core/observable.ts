@@ -44,12 +44,14 @@ export function observable<T extends object>(state: T) {
         get(target, name) {
             observeMap[name] = observeMap[name] || new Set();
             if (currentObserver) observeMap[name].add(currentObserver);
+            console.log(currentObserver);
             return target[name as keyof T];
         },
         set(target, name, value) {
+
             if (target[name as keyof T] === value) return true;
             if (JSON.stringify(target[name as keyof T]) === JSON.stringify(value)) return true;
-            target[name as keyof T] = value;
+            console.log(target, name, value);
             observeMap[name].forEach(fn => fn());
             return true;
         }
