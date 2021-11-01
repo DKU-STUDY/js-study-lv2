@@ -38,25 +38,25 @@ export const observe = (fn: Function) => {
 
 export function observable<T extends object>(state: T) {
     const observeMap: { [key: string | symbol]: Set<Function> } = {};
-    return new Proxy<T>(state, {
+    const validator: ProxyHandler<T> = {
 
-        get(target, name) {
+        get(target, name, receiver) {
+            const value = target[name as keyof T];
+            console.log(target, receiver);
             observeMap[name] = observeMap[name] || new Set();
             if (currentObserver) observeMap[name].add(currentObserver);
-            return target[name as keyof T];
+            return value;
         },
         set(target, name, value) {
-            if (typeof value === "object") {
-                target[name as keyof T] = observable(value);
-            }
+
             if (target[name as keyof T] === value) return true;
             if (JSON.stringify(target[name as keyof T]) === JSON.stringify(value)) return true;
             target[name as keyof T] = value;
             observeMap[name].forEach(fn => fn());
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); //여기밖에 setItem을 할 장소가 떠오르지 않는데 이렇게 되면 재귀로직으로 인해서 모든 key값이 다 스토리지에 등록되는 문제가 있네요... 방법을 못찾겠습니다.
             return true;
         }
-    })
+    };
+    return new Proxy(state, validator);
 }
 
 

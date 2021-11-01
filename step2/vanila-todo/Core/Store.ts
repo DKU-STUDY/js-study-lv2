@@ -12,23 +12,18 @@ export default class Store {
     state;
 
     constructor({mutations, actions}: StoreProp<todoState>) {
-        this.$state = new Proxy<todoState>(observable(this.initState()), { //observable을 가로채서 localstorage에 저장하는 로직
-            set: (target, name, value) => {
-                this.repo.set(value);
-                return true;
-            }
-        });
+        this.$state = observable(this.initState());
         this.$actions = actions;
         this.$mutations = mutations;
 
 
         this.state = new Proxy(this.initState(), {
-            get: (target, name) => this.$state[name as keyof todoState],
+            get: (target, name) => Reflect.get(this.$state, name)
         })
     }
 
     initState() {
-        
+
         return this.repo.get() || {
             selected: -1,
             todoList: [{
@@ -42,6 +37,7 @@ export default class Store {
     commit(action: string, payload: any) {
 
         this.$mutations[action](this.$state, payload);
+        this.repo.set(this.$state);
     }
 
     dispatch(action: string, payload: any): any {
