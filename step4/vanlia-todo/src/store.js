@@ -30,6 +30,9 @@ export const store = createStore((state = initState, action = {}) => {
       const targetIdx = todoList.findIndex((todo) => todo.id === targetId);
       if (targetIdx === -1) return state;
       todoList[targetIdx].isFinished = !todoList[targetIdx].isFinished;
+
+      // state.todoList = todoList;
+      // return state;
       return { ...state, todoList: [...todoList] };
     }
     case "ADD_TODO": {
@@ -39,7 +42,6 @@ export const store = createStore((state = initState, action = {}) => {
       if (!newTodo) return state;
       return { ...state, todoList: [...todoList, newTodo] };
     }
-
     default:
       return state;
   }
