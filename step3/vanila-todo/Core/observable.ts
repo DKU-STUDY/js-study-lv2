@@ -37,50 +37,54 @@ export const observe = (fn: Function) => {
 // return obj;
 // }
 //generator
+const targetMap = new WeakMap();
 
-
-export function deepObservable<T extends Object>(obj: T) {
-    const newObj = observable(obj);
-    for (const [key, value] of Object.entries(obj)) {
-        if (typeof value !== "object" || value === null) continue;
-        newObj[key as keyof T] = deepObservable(value);
+function track(target, name) {
+    if (!currentObserver) {
+        return;
     }
-    return newObj;
+    let depsMap = targetMap.get(target);
+    if (!depsMap) {
+        targetMap.set(target, (depsMap = new Map()));
+    }
+    let dep = depsMap.get(name);
+    if (!dep) {
+        depsMap.set(name, (dep = new Set()));
+    }
+    if (!dep.has(currentObserver)) {
+        dep.add(currentObserver);
+    }
+}
+
+
+function trigger(target, name) {
+    const depsMap = targetMap.get(target);
+    if (!depsMap) {
+        return;
+    }
+    const dep = depsMap.get(name);
+    if (dep) {
+        dep.forEach(fn => fn());
+    }
+
 }
 
 export function observable<T extends object>(state: T) {
-    const observeMap: Map<T[keyof T], Set<Function>> = new Map();
+    const observeMap: Record<string | symbol, Set<Function>> = {};
     const handler: ProxyHandler<T> = {
         get(target, name, receiver) {
-            if (name === 'isProxy') {
-                return true;
-            }
-            const value = target[name as keyof T]
-            console.log(target, name, receiver);
-            if (typeof name === undefined) return;
-            if (!value.isProxy === undefined && typeof value === 'object') {
-                target[name as keyof T] = new Proxy(value, handler);
-            }
-
-            if (!observeMap.has(value)) {
-                observeMap.set(value, new Set<Function>());
-            }
-            if (currentObserver) Set.prototype.add.call(observeMap.get(value), currentObserver);
-            // if (currentObserver) observer.add(currentObserver);
-            return value;
+            const res = Reflect.get(target, name, receiver);
+            track(target, name);
+            return res;
         }
         ,
-        set(target, name, value) {
-            console.log('target:' + target + "\nvalue:" + value);
-            if (target[name as keyof T] === value) return true;
-            if (JSON.stringify(target[name as keyof T]) === JSON.stringify(value)) return true;
-
-            target[name as keyof T] = value;
-            if (observeMap.has(value)) {
-                Set.prototype.forEach.call(observeMap.get(value), fn => fn());
+        set(target, name, value, receiver) {
+            const oldValue = target[name as keyof T];
+            const res = value;
+            if (oldValue !== res) {
+                trigger(target, name);
             }
-            // observer.forEach(fn => fn());
-            return true;
+            return res;
         }
     }
     return new Proxy(state, handler);

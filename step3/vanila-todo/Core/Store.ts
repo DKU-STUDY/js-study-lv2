@@ -26,11 +26,11 @@ export default class Store {
 
         return this.repo.get() || {
             selected: -1,
-            todoList: [{
+            todoList: observable([{
                 id: 1,
                 text: "hi",
                 completed: false
-            }]
+            }]),
         }
     }
 
