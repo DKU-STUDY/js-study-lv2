@@ -58,7 +58,7 @@ export function observable<T extends object>(state: T) {
             const value = target[name as keyof T]
             console.log(target, name, receiver);
             if (typeof name === undefined) return;
-            if (value.hasOwnProperty('isProxy') && typeof value === 'object') {
+            if (!value.isProxy === undefined && typeof value === 'object') {
                 target[name as keyof T] = new Proxy(value, handler);
             }
 
