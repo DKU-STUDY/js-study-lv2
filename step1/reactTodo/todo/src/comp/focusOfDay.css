@@ -1,0 +1,77 @@
+.todayFocusView{
+    position: absolute;
+    top:0;
+    left: 0;
+    transform:translate(5rem, 26rem);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 3rem;
+  }
+  
+  .todayFocusInput{
+      height: 3rem;
+      font-size: 2rem;
+      border: none;
+      background-color:rgba(0,0,0,0);
+      color:rgba(211, 219, 226, 0.925);
+  }
+  .todayFocusInput:focus{
+    outline: none;
+    border-bottom: solid 1px rgb(85, 85, 85);
+  }
+
+  .todayFocusP{
+      height: 100%;
+      margin: 0;
+      font-size: 2rem;
+  }
+
+  .todayFocusP::selection{
+      background: none;
+  }
+  
+  .HighLighted{
+    color:rgba(211, 219, 226, 0.925);
+  }
+  .HighLigtedOff{
+    color: rgb(85, 85, 85);
+    text-decoration: line-through;
+  }
+
+  .todayFocusSetter{
+      height: 1.5rem;
+      width: 1.2rem;
+      margin-left: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-radius: 2px 3px 3px 2px / 2px 3px 3px 2px;
+      background-color: rgba(250, 250, 250, 0.479);
+      box-sizing: border-box;
+      border: solid 1px rgba(250,250,250, 0.2);
+      outline: 1px solid rgba(250, 250, 250, 0.3);
+  }
+
+.popup{
+    transition-property: all;
+    opacity: 1;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+
+.popout{
+    transition-property: all;
+    opacity: 0;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+
+.xmark{
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.5;
+    filter:grayscale(100);
+}
