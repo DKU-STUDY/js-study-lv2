@@ -5,8 +5,9 @@ import {todoState} from "./type";
 let currentObserver: (Function | null) = null;
 
 export const observe = (fn: Function) => {
+
     currentObserver = fn;
-    console.log(fn);
+
     fn();
     currentObserver = null;
 }
@@ -35,29 +36,64 @@ export const observe = (fn: Function) => {
 // })
 // return obj;
 // }
+//generator
 
+
+export function deepObservable<T extends Object>(obj: T) {
+    const newObj = observable(obj);
+    for (const [key, value] of Object.entries(obj)) {
+        if (typeof value !== "object" || value === null) continue;
+        newObj[key as keyof T] = deepObservable(value);
+    }
+    return newObj;
+}
 
 export function observable<T extends object>(state: T) {
-    const observeMap: { [key: string | symbol]: Set<Function> } = {};
-    return new Proxy<T>(state, {
+    const observeMap: Map<T[keyof T], Set<Function>> = new Map();
+    const handler: ProxyHandler<T> = {
+        get(target, name, receiver) {
+            if (name === 'isProxy') {
+                return true;
+            }
+            const value = target[name as keyof T]
+            console.log(target, name, receiver);
+            if (typeof name === undefined) return;
+            if (value.hasOwnProperty('isProxy') && typeof value === 'object') {
+                target[name as keyof T] = new Proxy(value, handler);
+            }
 
-        get(target, name) {
-            observeMap[name] = observeMap[name] || new Set();
-            if (currentObserver) observeMap[name].add(currentObserver);
-            console.log(currentObserver);
-            return target[name as keyof T];
-        },
+            if (!observeMap.has(value)) {
+                observeMap.set(value, new Set<Function>());
+            }
+            if (currentObserver) Set.prototype.add.call(observeMap.get(value), currentObserver);
+            // if (currentObserver) observer.add(currentObserver);
+            return value;
+        }
+        ,
         set(target, name, value) {
-
+            console.log('target:' + target + "\nvalue:" + value);
             if (target[name as keyof T] === value) return true;
             if (JSON.stringify(target[name as keyof T]) === JSON.stringify(value)) return true;
-            console.log(target, name, value);
-            observeMap[name].forEach(fn => fn());
+
+            target[name as keyof T] = value;
+            if (observeMap.has(value)) {
+                Set.prototype.forEach.call(observeMap.get(value), fn => fn());
+            }
+            // observer.forEach(fn => fn());
             return true;
         }
-    })
+    }
+    return new Proxy(state, handler);
 }
 
 
 //
 //
+// if (!observeMap.has(value)) observeMap.set(value, new Set());
+//
+// if (currentObserver) observeMap.get(value)!.add(currentObserver);
+// observeMap.get(value).forEach(fn => fn());
+//
+// if (!observeMap.has(target[name as keyof T])) observeMap.set(target[name as keyof T], new Set());
+// if (currentObserver) observeMap.get(target[name as keyof T])!.add(currentObserver);
+// observeMap.get(target[name as keyof T])!.forEach(fn => fn());

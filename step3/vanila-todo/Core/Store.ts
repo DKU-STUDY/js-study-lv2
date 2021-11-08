@@ -1,7 +1,7 @@
-import {observable} from "./observable";
+import {deepObservable, observable} from "./observable";
 import {StoreProp, todoState, todoValue} from "./type";
 import {Repository} from "./Repository";
-import {STORAGE_KEY} from "./Constants";
+import {Action, STORAGE_KEY} from "./Constants";
 
 
 export default class Store {
@@ -34,13 +34,13 @@ export default class Store {
         }
     }
 
-    commit(action: string, payload: any) {
+    commit(action: Action, payload: any) {
 
         this.$mutations[action](this.$state, payload);
         this.repo.set(this.$state);
     }
 
-    dispatch(action: string, payload: any): any {
+    dispatch(action: Action, payload: any): any {
 
         return this.$actions[action]({
             state: this.$state,

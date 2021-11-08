@@ -6,6 +6,7 @@ import {todoItem} from "./Core/type";
 export class TodoList extends Component {
     template() {
         const {selected, todoList} = store.state;
+        console.log(todoList);
         return todoList.map((todo) => `
         <li data-id=${todo.id}>      
         ${todo.id === selected ?
@@ -19,13 +20,14 @@ export class TodoList extends Component {
     }
 
     setEvent() {
-        this.addEvent("change", "button#todo-toggle-checkbox", (e) => {
+        this.addEvent("change", "input#todo-toggle-checkbox", (e) => {
             const li = (e.target as HTMLElement).closest("li") as HTMLLIElement;
             store.commit(Action.TOGGLE, li.dataset.id);
         });
         this.addEvent("click", "button#todo-edit-button", (e) => {
             const li = (e.target as HTMLElement).closest("li") as HTMLLIElement;
             store.commit(Action.EDIT, li.dataset.id);
+
         })
         this.addEvent("click", "button#todo-remove-button", (e) => {
             const li = (e.target as HTMLElement).closest("li") as HTMLLIElement;

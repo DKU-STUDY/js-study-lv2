@@ -15,7 +15,7 @@ export const store = new Store({
         },
         [Action.DELETE](state, id) {
             const index = state.todoList.findIndex(todo => todo.id === id);
-            state.todoList = state.todoList.splice(index, 1);
+            state.todoList.splice(index, 1);
         },
         [Action.UPDATE](state, payload) {
             const item = state.todoList.find(todo => todo.id === state.selected);
