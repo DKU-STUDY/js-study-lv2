@@ -17,7 +17,7 @@ export default class Items extends components {
                 },
                 {
                     seq: 2,
-                    content: 'item2',
+                    contents: 'item2',
                     active: true,
                 }] 
         };
@@ -31,10 +31,10 @@ export default class Items extends components {
         <main>
             <ul>
                 ${this.filteredItems.map(({contents, active, seq}) =>`
-                    <li data-sep="${seq}">
+                    <li data-seq="${seq}">
                         ${contents}
                         <button class="toggleBtn" style="color: ${active ? '#09F' : '#F09'
-                    }"
+                    }">
                         ${active ? '활성' : '비활성'}
                         </button>
                         <button class="deleteBtn">삭제</button>
@@ -67,7 +67,7 @@ export default class Items extends components {
         this.addEvent('click', '.deleteBtn', ({ target }) => {
             const items  = [...this.$state.items ];
             const seq = Number(target.closest('[data-seq]').dataset.seq);
-            this.splice(items.findIndex(v => v.seq === seq), 1);
+            items.splice(items.findIndex(v => v.seq === seq), 1);
             this.setState({items});
         });
 
