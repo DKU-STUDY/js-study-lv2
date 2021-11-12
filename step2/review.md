@@ -102,3 +102,47 @@ $app.innerHTML = `
 `
 ```
 
+* state의 setter와, render func 두개로 재구성하는게 더 직관적이다.<br/>setEvent와 injection은 하나로 묶여 render로 변경되어야 할 것.
+
+```js
+//수정 전
+
+const injection = () => {
+    // ....
+    setEvent();
+}
+
+const seEvent = () => {
+    //...
+    injection();
+}
+// 사실 왜 무한루프가 안나는지 잘 모르겠다.
+
+//수정 후
+const $app = document.querySelector('.app');
+const state = {
+    table: ['item0', 'item1', 'item2']
+}
+
+const render = () => {
+    const listTable = state.table;
+    $app.innerHTML = `
+    <h3>Example #1</h3>
+    <ul>
+    ${listTable.map(item => `<li>${item}</li>`.join(''))}
+    </ul>
+    <button>추가</button>
+    `
+    document.querySelector('button').addEventListener('click', () => {
+       setTable(`item${listTable.length}`); 
+    });
+}
+
+const setTable = (input) => {
+    state.table.push(input);
+    render();
+}
+
+render();
+```
+
