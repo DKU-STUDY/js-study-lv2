@@ -1,6 +1,17 @@
 import Component from "./component.js";
 
 class App extends Component{
+
+    stateInit(){
+        this.state = {
+            item: ['item0', 'item1', 'item2']
+        }
+    }
+    bindEvent(){
+        this.$app.querySelector('button').addEventListener('click',()=>{
+            this.setState({item : [...this.state.item ,`item${this.state.item.length}`]});
+        });
+    }
     render(){
         const table = this.state.item;
         this.$app.innerHTML=`
@@ -10,13 +21,9 @@ class App extends Component{
         </ul>
         <button>추가</button>
         `
-        document.querySelector('button').addEventListener('click', () => {
-            this.setState({item : [...this.state.item, `item${this.state.item.length}`]});
-            this.render();
-        });
-    
+        this.bindEvent();    
     }
     
 }
 
-new App({item: ['item0', 'item1', 'item2']});
+new App();

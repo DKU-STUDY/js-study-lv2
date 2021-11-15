@@ -1,6 +1,6 @@
 class Component {
-    constructor(newStat){
-        this.setState(newStat);
+    constructor(){
+        this.stateInit();
         this.render();
     }
     $app = document.querySelector('.app');
@@ -9,9 +9,10 @@ class Component {
         this.state = {...this.state, ...newState}
         this.render();
     }
-
+    stateInit(){}
     render(){}
-
+    bindEvent(){}
+    
 }
 
 export default Component;
