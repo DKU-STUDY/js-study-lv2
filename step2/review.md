@@ -146,3 +146,125 @@ const setTable = (input) => {
 render();
 ```
 
+
+
+<h2>Example #2</h2>
+
+Ex #1 의 코드를 class를 사용해 구성해보자.
+
+class의 작성과 사용에 익숙하지 않아서 엄청 해매버렸다.
+
+* component.js
+
+```js
+class Component {
+    constructor(newStat){
+        this.setState(newStat);
+        this.render();
+    }
+    $app = document.querySelector('.app');
+    state
+    setState(newState){
+        this.state = {...this.state, ...newState}
+        this.render();
+    }
+
+    render(){}
+
+}
+
+export default Component;
+```
+
+* app.js
+
+```js
+import Component from "./component.js";
+
+class App extends Component{
+    render(){
+        const table = this.state.item;
+        this.$app.innerHTML=`
+        <h3>Example #2</h3>
+        <ul>
+        ${table.map(ele => `<li>${ele}</li>`).join('')}
+        </ul>
+        <button>추가</button>
+        `
+        document.querySelector('button').addEventListener('click', () => {
+            this.setState({item : [...this.state.item, `item${this.state.item.length}`]});
+            this.render();
+        });
+    
+    }
+    
+}
+
+new App({item: ['item0', 'item1', 'item2']});
+```
+
+몰랐던 점들.
+
+* constructorr 함수는 상속받은 클래스가 아닌 부모 클래스에서 작성해야 깔끔해짐.
+
+* setState함수로 state를 깔끔하게 갱신하기 쉽지 않구나.
+
+수정해야할 점
+
+* 확장성을 고려해, event binding 하는 메소드를 하나 추가하자.
+* state 초기값을 initialize 하는 메소드를 사용하자.
+
+
+
+```js
+import Component from "./component.js";
+
+class App extends Component{
+
+    stateInit(){
+        this.state = {
+            item: ['item0', 'item1', 'item2']
+        }
+    }
+    bindEvent(){
+        this.$app.querySelector('button').addEventListener('click',()=>{
+            this.setState({item : [...this.state.item ,`item${this.state.item.length}`]});
+        });
+    }
+    render(){
+        const table = this.state.item;
+        this.$app.innerHTML=`
+        <h3>Example #2</h3>
+        <ul>
+        ${table.map(ele => `<li>${ele}</li>`).join('')}
+        </ul>
+        <button>추가</button>
+        `
+        this.bindEvent();    
+    }
+    
+}
+```
+```js
+new App();
+
+class Component {
+    constructor(){
+        this.stateInit();
+        this.render();
+    }
+    $app = document.querySelector('.app');
+    state
+    setState(newState){
+        this.state = {...this.state, ...newState}
+        this.render();
+    }
+    stateInit(){}
+    render(){}
+    bindEvent(){}
+    
+}
+
+export default Component;
+```
+

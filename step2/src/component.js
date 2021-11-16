@@ -1,9 +1,10 @@
 class Component {
-    constructor(){
+    target
+    constructor(target){
+        this.target = target;
         this.stateInit();
         this.render();
     }
-    $app = document.querySelector('.app');
     state
     setState(newState){
         this.state = {...this.state, ...newState}

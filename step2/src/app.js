@@ -8,13 +8,13 @@ class App extends Component{
         }
     }
     bindEvent(){
-        this.$app.querySelector('button').addEventListener('click',()=>{
+        this.target.querySelector('button').addEventListener('click',()=>{
             this.setState({item : [...this.state.item ,`item${this.state.item.length}`]});
         });
     }
     render(){
         const table = this.state.item;
-        this.$app.innerHTML=`
+        this.target.innerHTML=`
         <h3>Example #2</h3>
         <ul>
         ${table.map(ele => `<li>${ele}</li>`).join('')}
@@ -26,4 +26,4 @@ class App extends Component{
     
 }
 
-new App();
+new App(document.querySelector('.app'));
