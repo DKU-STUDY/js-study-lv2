@@ -213,58 +213,145 @@ new App({item: ['item0', 'item1', 'item2']});
 
 * 확장성을 고려해, event binding 하는 메소드를 하나 추가하자.
 * state 초기값을 initialize 하는 메소드를 사용하자.
+* component의 부모는 꼭 app div가 아닐 수 있기 때문에, constructor에 target을 받도록 하자.
 
 
+
+<h1>Example#4</h1>
+
+
+
+<img src = './reviewimages/Example#4.png' height ='200px'/>
+
+* list라는 ul 태그를 관장하는 component 밑에 각각의 li 태그를 관장하는 item이라는 component를 생성해 관리하고 싶다.
+  * 문제점들.
+    - render()에서 하위 component를 선언해야할까?
+    - 새 클래스를 선언하더라도 클래스 자체의 리턴값을 만들 수 없고 추가적으로 스트링을 반환하는 메소드를 작성해야하나?
+
+
+
+결과
+
+* component.js
 
 ```js
-import Component from "./component.js";
-
-class App extends Component{
-
-    stateInit(){
-        this.state = {
-            item: ['item0', 'item1', 'item2']
-        }
-    }
-    bindEvent(){
-        this.$app.querySelector('button').addEventListener('click',()=>{
-            this.setState({item : [...this.state.item ,`item${this.state.item.length}`]});
-        });
-    }
-    render(){
-        const table = this.state.item;
-        this.$app.innerHTML=`
-        <h3>Example #2</h3>
-        <ul>
-        ${table.map(ele => `<li>${ele}</li>`).join('')}
-        </ul>
-        <button>추가</button>
-        `
-        this.bindEvent();    
-    }
-    
-}
-```
-```js
-new App();
-
 class Component {
-    constructor(){
-        this.stateInit();
+    target
+    constructor(target){
+        if (arguments.length > 1){
+            this.props = arguments[1][0];
+            this.updateData = arguments[1][1];
+            this.updateRender = arguments[1][2];
+        }
+        this.target = target;
+        this.stateInit(); 
         this.render();
     }
-    $app = document.querySelector('.app');
     state
+    props
+    updateData
     setState(newState){
-        this.state = {...this.state, ...newState}
+        this.state = newState;
         this.render();
     }
+    content(){return ''}
     stateInit(){}
-    render(){}
-    bindEvent(){}
+    setEvent(){}
+    render(){
+        this.target.innerHTML = `${this.content()}`;
+        this.setEvent();
+    }
     
 }
 
 export default Component;
+```
+
+* list.js
+
+```js
+import Component from "../core/component.js";
+import Item from "./item.js";
+
+class List extends Component{
+    constructor(target){
+        super(target);
+        
+    }
+    stateInit(){
+        console.log('constructList');
+        this.state = {
+            item : [{key : 0, item: 'item0'}, {key: 1, item: 'item1'}, {key: 2, item: 'item2'}]
+        }
+    }
+    content(){
+        return `
+        <h2>Ex#04</h2>
+        <ul class='list'></ul>
+        <button class='append'>추가</button>
+        `
+    }
+    render(){
+        console.log('list Rendered');
+        this.target.innerHTML = this.content();
+        const $list = this.target.querySelector('.list');
+        new Item($list, [this.state, this.setState.bind(this)]);
+        this.setEvent();
+    }
+    setEvent(){
+        const targetObj = this.target.querySelector('.append');
+        targetObj.addEventListener('click', () => {
+            console.log(this.state);
+            console.log([...this.state.item, {key: this.state.item.length, item: `item${this.state.item.length}`}]);
+            this.setState({item : [...this.state.item, {key: this.state.item.length, item: `item${this.state.item.length}`}]});
+            //this.render();
+            
+        })
+    }
+    setState(newState){
+        console.log('newState');
+        this.state = newState;
+        this.render.apply(this);
+    }
+}
+
+export default List
+```
+
+* item.js
+
+```js
+import Component from "../core/component.js";
+
+class Item extends Component{
+
+    content(){
+        console.log('props', this.props);
+        return this.props.item.map(ele => `
+        <li>${ele.item}<button class = ${ele.key}>삭제</button></li>
+        `).join('');
+    }
+
+    render(){
+        this.target.innerHTML = this.content();
+        this.setEvent();
+    }
+
+    setEvent(){
+        const buttons = this.target.querySelectorAll('button');
+        buttons.forEach(button => {
+            button.addEventListener('click' , ()=> {
+                console.log(button.classList[0]);
+                let newstate = {item : this.props.item.filter(ele => ele.key != button.classList[0])}
+                this.props = newstate;
+                this.updateData(newstate);
+                //this.render();
+            });
+            });
+    }
+}
+
+
+export default Item
 ```
 
