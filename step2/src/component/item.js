@@ -20,9 +20,7 @@ class Item extends Component{
             button.addEventListener('click' , ()=> {
                 console.log(button.classList[0]);
                 let newstate = {item : this.props.item.filter(ele => ele.key != button.classList[0])}
-                this.props = newstate;
                 this.updateData(newstate);
-                //this.render();
             });
             });
     }

@@ -2,11 +2,11 @@ class Component {
     target
     constructor(target){
         if (arguments.length > 1){
+            this.target = arguments[0];
             this.props = arguments[1][0];
             this.updateData = arguments[1][1];
-            this.updateRender = arguments[1][2];
         }
-        this.target = target;
+        else this.target = target;
         this.stateInit(); 
         this.render();
     }
