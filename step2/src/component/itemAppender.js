@@ -5,8 +5,8 @@ class ItemAppender extends Component{
         return `
         <form>
             <input class = 'itemAppender'/>
-        </form>
-        <button class = 'appendSubmit' >추가</button>
+            <button class = 'appendSubmit' >추가</button>
+        </form>        
         `
     }
     render(){
@@ -14,13 +14,17 @@ class ItemAppender extends Component{
         this.setEvent();
     }
     setEvent(){
+        this.target.querySelector("form").addEventListener('submit', (e)=>{
+            e.preventDefault();
+        })
         const appendInput = this.target.querySelector('.itemAppender');
         const appendSubmit = this.target.querySelector('.appendSubmit');
-        appendSubmit.addEventListener('click', () => {
+        appendSubmit.addEventListener('click', (e) => {
+            e.preventDefault();
             let inputdata = appendInput.value;
             appendInput.value = '';
             console.log(this.props);
-            this.updateData({...this.props, item: [...this.props.item, {key: this.props.item[this.props.item.length - 1].key + 1, item: inputdata}]});
+            this.updateData({...this.props, item: [...this.props.item, {key: this.props.item[this.props.item.length - 1].key + 1, done: false, item: inputdata}]});
         })
     }
 }

@@ -3,14 +3,27 @@ import Component from "../core/component.js";
 class Item extends Component{
 
     content(){
-        console.log('props', this.props);
-        return this.props.item.map(ele => `
-        <li>${ele.item}<button class = ${ele.key}>삭제</button></li>
-        `).join('');
+        console.log(this.props.item);
+        return this.props.item.map( ele => {
+            if (ele.done){
+                return`
+                <li>${ele.item}
+                    <button class= 'toggleStat' style = 'color: blue'>완료됨</button>
+                    <button class = ${ele.key} style = 'margin-left: 5px; color: #800000'>삭제</button>
+                </li>
+                `
+            }
+            return`
+            <li>${ele.item}
+                <button class = 'toggleStat' style = 'color: red'>진행중</button>
+                <button class = ${ele.key} style = 'margin-left: 5px; color: #800000'>삭제</button>
+            </li>
+            `
+    }).join('');
     }
 
     render(){
-        this.target.innerHTML = this.content();
+        this.target.innerHTML += this.content();
         this.setEvent();
     }
 
