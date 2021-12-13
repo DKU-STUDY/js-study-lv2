@@ -16,6 +16,7 @@ class App extends Component{
         return`
         <h2>Ex#05</h2>
         <div class = 'appender'></div>
+        <h5>${this.state.filter === 'all' ? '모두' : this.state.filter === 'progressing' ? '진행중인 리스트' : '완료된 리스트'}보기</h5>
         <ul class='list'></ul>
         <div class = 'footer'></div>
         `
@@ -27,7 +28,7 @@ class App extends Component{
         this.target.innerHTML = this.content();
         new ItemAppender(this.target.querySelector('.appender'), [this.state, this.setState.bind(this)]);
         new Item(this.target.querySelector('.list'), [this.state, this.setState.bind(this)]);
-        new Footer(this.target.querySelector('.footer'));
+        new Footer(this.target.querySelector('.footer'), [this.state, this.setState.bind(this)]);
         this.setEvent();
     }
 }
